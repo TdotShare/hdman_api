@@ -1,0 +1,3 @@
+DB_DATABASE=hdmandb
+DB_USERNAME=root
+DB_PASSWORD=

@@ -5,14 +5,27 @@ namespace App\Http\Controllers;
 use App\Market;
 use Illuminate\Http\Request;
 
-//require 'vendor/autoload.php';
-
 class MarketController extends Controller
 {
     public function actionAll()
     {
         $model = Market::all();
         return $this->responseRequest($model);
+    }
+
+    public function actionMarket()
+    {
+        // แสดงร้านที่เปิดให้บริการ ทั้งหมด 
+
+        try {   
+
+            $model = Market::where("status" , 0)->get();
+            return $this->responseRequest($model);
+
+
+        } catch (\Throwable $th) {
+            return $this->responseRequest($th, false, "catch");
+        }
     }
 
     public function actionView($id)

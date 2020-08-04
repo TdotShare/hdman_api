@@ -45,4 +45,20 @@ $router->group(['prefix' => 'api/product'], function () use ($router) {
     $router->get('/{id}', 'ProductController@actionList');
     $router->post('/create','ProductController@actionCreate');
     $router->post('/delete', 'ProductController@actionDelete');
+    $router->post('/buy', 'ProductController@actionBuy');
+});
+
+$router->group(['prefix' => 'api/history'], function () use ($router) {
+    $router->get('/{id}', 'HistoryController@actionHistory');
+    $router->get('order/{id}', 'HistoryController@actionOrderMt');
+    $router->get('/doprocess/{id}','HistoryController@actionDoProcess');
+    $router->get('/delete/{id}', 'HistoryController@actionDelete');
+    $router->post('/update', 'HistoryController@actionUpdate');
+});
+
+
+$router->group(['prefix' => 'api/favorite'], function () use ($router) {
+    $router->get('/{id}', 'FavoriteController@actionIndex');
+    $router->post('/create','FavoriteController@actionCreate');
+    $router->get('/delete/{id}', 'FavoriteController@actionDelete');
 });

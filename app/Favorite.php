@@ -4,20 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class Favorite extends Model
 {
-    protected $table = 'hd_account';
+    protected $table = 'hd_favorite';
     protected $primaryKey = 'id';
 
     //public $incrementing = false;
 
     protected $fillable = [
-       'username', 'email', 'status', 'verify_code' , 'nickname'
+      
     ];
 
 
     protected $hidden = [
-        'password'
+        
     ];
 
     protected $keyType = 'int';
